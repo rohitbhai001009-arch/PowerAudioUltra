@@ -1,1 +1,23 @@
-# PowerAudioUltra
+name: Build Android APK
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      - name: Build with Gradle
+        run: ./gradlew assembleDebug
+
+      - name: Upload APK
+        uses: actions/upload-artifact@v3
+        with:
+          name: PowerAudioUltra-APK
+          path: app/build/outputs/apk/debug/app-debug.apk
