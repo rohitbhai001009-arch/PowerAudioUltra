@@ -21,3 +21,4 @@ jobs:
         with:
           name: PowerAudioUltra-APK
           path: app/build/outputs/apk/debug/app-debug.apk
+/apk/debug/app-debug.apk
